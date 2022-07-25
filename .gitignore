@@ -32,3 +32,6 @@ override.tf.json
 # example: *tfplan*
 
 # End of https://www.toptal.com/developers/gitignore/api/terraform
+
+# Terraform dependecy lock file should not be part of the module
+.terraform.lock.hcl
