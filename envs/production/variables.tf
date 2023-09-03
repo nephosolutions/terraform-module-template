@@ -16,5 +16,4 @@ variable "demo" {
   description = "Trigger for the demo resource."
   type        = string
   nullable    = false
-  default     = ""
 }

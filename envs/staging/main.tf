@@ -12,9 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-variable "demo" {
-  description = "Trigger for the demo resource."
-  type        = string
-  nullable    = false
-  default     = ""
+module "demo" {
+  source = "../../"
+  demo   = var.demo
 }

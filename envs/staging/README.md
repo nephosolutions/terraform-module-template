@@ -1,4 +1,4 @@
-# Terraform Module Template
+# Terraform Module Template Staging Environment
 
 Copyright 2021-2023 NephoSolutions srl, Sebastian Trebitz
 
@@ -20,29 +20,27 @@ limitations under the License.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_null"></a> [null](#requirement\_null) | >= 3.0 |
+| <a name="requirement_null"></a> [null](#requirement\_null) | ~> 3.2.1 |
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_null"></a> [null](#provider\_null) | 3.2.1 |
+No providers.
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_demo"></a> [demo](#module\_demo) | ../../ | n/a |
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| [null_resource.demo](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
+No resources.
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_demo"></a> [demo](#input\_demo) | Trigger for the demo resource. | `string` | `""` | no |
+| <a name="input_demo"></a> [demo](#input\_demo) | Trigger for the demo resource. | `string` | n/a | yes |
 
 ## Outputs
 

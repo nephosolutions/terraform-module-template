@@ -12,9 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-variable "demo" {
-  description = "Trigger for the demo resource."
-  type        = string
-  nullable    = false
-  default     = ""
+output "null_resource_id" {
+  description = "The ID of the demo resource."
+  value       = module.demo.null_resource_id
+}
+
+output "null_resource_triggers" {
+  description = "The triggers of the demo resource."
+  value       = module.demo.null_resource_triggers
 }
