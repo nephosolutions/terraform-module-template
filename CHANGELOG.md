@@ -1,15 +1,5 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
-
-## [Unreleased]
-
-## [0.1.0] - YYYY-MM-DD
-
-Initial release
-
-- some features
-- missing features
-
-[Unreleased]: https://github.com/nephosolutions/terraform-module-template/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/nephosolutions/terraform-module-template/releases/tag/v0.1.0
+All notable changes to this module are documented in this file. It is maintained by
+[release-please](https://github.com/googleapis/release-please) from the conventional commit titles of merged pull
+requests; don't edit released sections by hand.

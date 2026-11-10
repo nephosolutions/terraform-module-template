@@ -1,0 +1,43 @@
+---
+# Opens and updates the release PR from the conventional commits on main. Merging it tags vX.Y.Z, which HCP Terraform
+# publishes to the private registry.
+#
+# Pull requests and tags created with the default GITHUB_TOKEN don't trigger workflows, so the release PR would never
+# get its required checks. Set the repository (or organization) variable RELEASE_PLEASE_CLIENT_ID and the secret
+# RELEASE_PLEASE_PRIVATE_KEY of a GitHub App with contents and pull-requests write access to avoid that.
+name: Release Please
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  release-please:
+    name: Release Please
+    # The template itself isn't a module and is never released.
+    if: github.repository != 'nephosolutions/terraform-module-template'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create a GitHub App token
+        id: app-token
+        if: vars.RELEASE_PLEASE_CLIENT_ID != ''
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          client-id: ${{ vars.RELEASE_PLEASE_CLIENT_ID }}
+          private-key: ${{ secrets.RELEASE_PLEASE_PRIVATE_KEY }}
+
+      - name: Release Please
+        uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
+        with:
+          token: ${{ steps.app-token.outputs.token || github.token }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json

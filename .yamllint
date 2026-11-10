@@ -1,0 +1,23 @@
+---
+# The organization's default from tfc-organization/.github/workflows/yaml-lint.yaml.
+extends: relaxed
+
+rules:
+  # relaxed only warns on these; they must hold.
+  braces: {level: error}
+  brackets: {level: error}
+  colons: {level: error}
+  commas: {level: error}
+  empty-lines: {level: error}
+  hyphens: {level: error}
+  indentation: {level: error}
+  line-length:
+    max: 120
+    level: warning
+    allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: true
+    # A pinned `uses: <action>@<sha> # vX.Y.Z` line can't be broken.
+    ignore: |
+      .github/workflows/
+  quoted-strings:
+    required: only-when-needed

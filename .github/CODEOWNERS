@@ -1,9 +1,3 @@
-# This is a comment.
-# Each line is a file pattern followed by one or more owners.
-#
-# https://help.github.com/en/articles/about-code-owners#example-of-a-codeowners-file
-
-# These owners will be the default owners for everything in the repo.
-# Unless a later match takes precedence, @strebitz will be requested for
-# review when someone opens a pull request.
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+# Default owners for everything in the repository. Replace with the owning team once it exists.
 * @strebitz
