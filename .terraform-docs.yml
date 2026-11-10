@@ -1,0 +1,21 @@
+---
+# https://terraform-docs.io/user-guide/configuration/
+formatter: markdown table
+
+header-from: main.tf
+
+output:
+  file: README.md
+  mode: inject
+  template: |-
+    <!-- BEGIN_TF_DOCS -->
+    {{ .Content }}
+    <!-- END_TF_DOCS -->
+
+settings:
+  # Show the version constraints, not the versions of a local (gitignored) lock file.
+  lockfile: false
+
+sort:
+  enabled: true
+  by: name

@@ -39,5 +39,8 @@ terraform.rc
 
 # End of https://www.toptal.com/developers/gitignore/api/terraform
 
-# Terraform dependecy lock file should not be part of the module
+# Child modules don't commit a lock file; callers lock the providers.
 .terraform.lock.hcl
+
+# Plan output of `terraform plan -out=...`
+*tfplan*
