@@ -1,10 +1,15 @@
 ---
 # Pull requests are squash-merged, so the PR title becomes the commit message that release-please reads.
 # Required check: "PR Title".
+#
+# `pull_request`, not `pull_request_target`: a release PR opened with the default GITHUB_TOKEN gets runs only for
+# `pull_request` workflows, once a maintainer clicks "Approve workflows to run"; `pull_request_target` never runs for
+# it, so the required check would be missing. The action only reads the title, which the read-only token of a fork's
+# pull request allows too.
 name: PR Title
 
 on:
-  pull_request_target:
+  pull_request:
     types:
       - opened
       - edited
