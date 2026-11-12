@@ -36,6 +36,9 @@ jobs:
         with:
           client-id: ${{ vars.RELEASE_PLEASE_CLIENT_ID }}
           private-key: ${{ secrets.RELEASE_PLEASE_PRIVATE_KEY }}
+          # Without these, the token inherits every permission of the App's installation.
+          permission-contents: write
+          permission-pull-requests: write
 
       - name: Release Please
         uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
