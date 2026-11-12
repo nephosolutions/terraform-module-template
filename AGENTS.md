@@ -47,6 +47,8 @@ Work through this once, in the first pull request, then delete this section.
   Merging that PR tags `vX.Y.Z`, and HCP Terraform publishes the tag to the private registry. Unless a GitHub App
   is configured (see `.github/workflows/release-please.yaml`), the release PR's checks run only after a maintainer
   clicks "Approve workflows to run".
+- `CHANGELOG.md` is created by the first release PR and maintained by release-please; don't edit released sections
+  by hand, and don't add a heading or intro before the first release (release-please would move it below the entry).
 - Semver: `fix` → patch, `feat` → minor, `feat!`/`BREAKING CHANGE:` → major. A breaking change is a removed or renamed
   variable or output, a new required variable, a changed resource address without a `moved` block, or a raised
   minimum Terraform or provider version.
