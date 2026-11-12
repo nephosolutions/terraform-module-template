@@ -2,9 +2,11 @@
 # Opens and updates the release PR from the conventional commits on main. Merging it tags vX.Y.Z, which HCP Terraform
 # publishes to the private registry.
 #
-# Pull requests and tags created with the default GITHUB_TOKEN don't trigger workflows, so the release PR would never
-# get its required checks. Set the repository (or organization) variable RELEASE_PLEASE_CLIENT_ID and the secret
-# RELEASE_PLEASE_PRIVATE_KEY of a GitHub App with contents and pull-requests write access to avoid that.
+# With the default GITHUB_TOKEN, the release PR's checks wait until a maintainer clicks "Approve workflows to run" on
+# it; then they run and the PR merges as usual. The tag still reaches the registry, because HCP Terraform picks it up
+# through its VCS connection, not through a workflow. To skip the approval, set the repository (or organization)
+# variable RELEASE_PLEASE_CLIENT_ID and the secret RELEASE_PLEASE_PRIVATE_KEY of a GitHub App with contents and
+# pull-requests write access.
 name: Release Please
 
 on:

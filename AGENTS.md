@@ -44,7 +44,9 @@ Work through this once, in the first pull request, then delete this section.
   [Conventional Commits](https://www.conventionalcommits.org) (`feat:`, `fix:`, `docs:`, `chore:`, ...). The
   "PR Title" check enforces it.
 - release-please turns merged commits into a release PR (version bump, `CHANGELOG.md`, README usage version).
-  Merging that PR tags `vX.Y.Z`, and HCP Terraform publishes the tag to the private registry.
+  Merging that PR tags `vX.Y.Z`, and HCP Terraform publishes the tag to the private registry. Unless a GitHub App
+  is configured (see `.github/workflows/release-please.yaml`), the release PR's checks run only after a maintainer
+  clicks "Approve workflows to run".
 - Semver: `fix` → patch, `feat` → minor, `feat!`/`BREAKING CHANGE:` → major. A breaking change is a removed or renamed
   variable or output, a new required variable, a changed resource address without a `moved` block, or a raised
   minimum Terraform or provider version.
